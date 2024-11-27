@@ -1,0 +1,149 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+header nav ul li a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #007BFF;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+    color: #000; 
+}
+
+
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+main h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #555;
+}
+
+.cuisine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.cuisine-card {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.cuisine-card .image-placeholder {
+    background-color: #ccc;
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.cuisine-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cuisine-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+
+footer .social-links p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+footer .social-links ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 15px;
+}
+
+footer .social-links ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+    .cuisine-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cuisine-card {
+        padding: 15px
+    }
+}
