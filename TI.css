@@ -11,6 +11,7 @@ body {
     background-color: #fff;
     color: #333;
     display: flex;
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
@@ -164,3 +165,4 @@ footer .social-links ul li a {
         padding: 10px
     }
 }
+/* 
