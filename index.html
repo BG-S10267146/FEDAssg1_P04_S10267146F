@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Blog</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo">Food Blog</div>
+        <div class="menu-toggle">☰</div>
         <nav>
             <ul>
-                <li><a href="#" class = 'active'>HOME</a></li>
+                <li><a href="#" class="active">HOME</a></li>
                 <li><a href="about-me.html">ABOUT ME</a></li>
                 <li><a href="cuisines.html">CUISINES</a></li>
                 <li><a href="TI.html">TRAVEL ITINERARIES</a></li>
@@ -19,37 +20,68 @@
         </nav>
     </header>
     <main>
+       
         <h1>Everything in the globe, in one place</h1>
         <section class="content">
             <div class="card">
-                <img src="new york food1.webp" alt="Delicious New York food" class="image-placeholder">
+                <div class="image-placeholder">
+                    <div class="overlay">
+                        <p>New York City is a paradise for food enthusiasts, a melting pot where cultures collide and cuisines shine. From iconic street eats to high-end gastronomy, the city offers an endless buffet of flavors for every palate and budget.</p>
+                    </div>
+                </div>
                 <div class="caption">New York</div>
             </div>
-            </div>
             <div class="card">
-                <div class="image-placeholder"></div>
+                <div class="image-placeholder">
+                    <div class="overlay">
+                        <p>China is a nation of culinary wonders, offering a tapestry of tastes, textures, and traditions that vary dramatically from region to region. From fiery Sichuan spice to delicate Cantonese dim sum, every province tells a story through its cuisine.</p>
+                    </div>
+                </div>
                 <div class="caption">China</div>
             </div>
             <div class="card">
-                <div class="image-placeholder"></div>
+                <div class="image-placeholder">
+                    <div class="overlay">
+                        <p>India is a food lover's paradise, a country where every state boasts its own distinct culinary heritage. From fiery curries to delicate desserts, India's cuisine is a celebration of spices, textures, and traditions.</p>
+                    </div>
+                </div>
                 <div class="caption">India</div>
             </div>
-        </section>
-        <section class="description">
-            <p>New York City is a paradise for food enthusiasts, a melting pot where cultures collide and cuisines shine. From iconic street eats to high-end gastronomy, the city offers an endless buffet of flavors for every palate and budget.</p>
-            <p>China is a nation of culinary wonders, offering a tapestry of tastes, textures, and traditions that vary dramatically from region to region. From fiery Sichuan spice to delicate Cantonese dim sum, every province tells a story through its cuisine.</p>
-            <p>India is a food lover's paradise, a country where every state boasts its own distinct culinary heritage. From fiery curries to delicate desserts, India's cuisine is a celebration of spices, textures, and traditions.</p>
-        </section>
+            <section class="about-box">
+                <div class="about-box-content">
+                    <img src="placeholder.jpg" alt="Trending Image" class="about-box-image" />
+                    <div class="about-box-text">
+                        <h2>Trending</h2>
+                        <p>
+                            Together, New York City, China, and India offer an unparalleled opportunity to explore the diverse world of food. 
+                            Whether you are indulging in a hot, tangy bowl of ramen, savoring the complexity of Chinese hotpot, or relishing the spiciness of Indian curry, 
+                            each of these destinations invites you to discover new textures, flavors, and stories.
+                        </p>
+                        <p>
+                            Food in these places is not just a meal; it's an exploration of culture, tradition, and history. 
+                            From the bold, brash flavors of New York’s streets to the nuanced, delicate dishes of China, and the complex, spice-laden meals of India, 
+                            each destination has something to offer food lovers seeking to expand their palates and deepen their connection to the world.
+                        </p>
+                        <p>
+                            The beauty of food is that it brings people together, and no place exemplifies this more than these three global giants—
+                            where every dish tells a story of tradition, migration, and the simple joy of sharing a meal.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            
     </main>
     <footer>
         <div class="social-links">
             <p>Follow us on</p>
             <ul>
                 <li><a href="#">Instagram</a></li>
-                <li><a href="#">Tiktok</a></li>
+                <li><a href="#">TikTok</a></li>
                 <li><a href="#">Twitter</a></li>
             </ul>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
