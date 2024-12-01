@@ -1,35 +1,480 @@
+/*standardisation*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
 
-/* About Box */
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1A202C;
+    border-bottom: 1px solid #1A202C;
+    position: relative;
+    z-index: 10;
+}
+
+header .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color : white;
+    font-family: 'Dancing Script', cursive; /* Add Dancing Script font */
+}
+
+/* Navigation for desktop */
+header nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    gap: 15px;
+    transition: none;
+}
+
+header nav ul li {
+    margin: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav ul li a.active {
+    font-weight: bold;
+    color: #FFC107; /* Vibrant gold for active tab */
+    position: relative; /* Make the pseudo-element relative to the link */
+}
+
+/* Desktop Active Link Styling (Retains underline effect) */
+header nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Position the underline at the bottom of the link */
+    left: 0; /* Start from the left */
+    width: 100%; /* Underline spans the full width when active */
+    height: 2px; /* Thickness of the underline */
+    background-color: #FFC107; /* Same color as the active text */
+    transform: translateY(5px); /* Adjust position closer to the navbar border */
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for width and color */
+}
+
+/* Override for Mobile View (Disable underline) */
+@media (max-width: 768px) {
+    header nav ul li a.active::after {
+        content: none; /* Remove the underline effect in mobile view */
+    }
+}
+
+header nav ul li a:not(.active)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%; /* No underline for inactive links */
+    height: 2px;
+    background-color: transparent; /* Invisible for inactive links */
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth out transitions */
+}
+
+header nav ul li a:hover {
+    color: #FFF8DC;
+    transform: scale(1.1);
+    border-radius: 5px;
+}
+
+header nav ul li a.active:hover::before {
+    width: 100%; /* Expand the underline smoothly when the tab is active or hovered */
+}
+
+/* Mobile Menu Toggle Button (Align to the right) */
+.menu-toggle {
+    display: none; /* Hide menu toggle on desktop */
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px; /* Align to the far right */
+    color: white;
+}
+
+/* Mobile Dropdown Menu */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show menu toggle for mobile view */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #1A202C;
+        max-height: 0;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        border-radius: 3px;
+        top: 60px;
+        width: 200px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        padding: 0;
+        opacity: 0; /* Start hidden */
+        transform: translateY(-20px); /* Slide up initially */
+        transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    }
+    
+    /* Active Dropdown State */
+    header nav.active ul {
+        max-height: 300px;
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Slide into position */
+    }
+    
+    /* Hover Effects for Dropdown Items */
+    header nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+        padding: 10px 15px;
+        background-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    header nav ul li a:hover {
+        background-color: #ADD; /* Slightly darker hover effect */
+        color: #000; /* Darken text for better contrast */
+    }
+    
+    /* Improve Spacing Between Items */
+    header nav ul li {
+        text-align: left;
+        margin-bottom: 5px; /* Add spacing between items */
+    }
+    
+    header nav ul li:last-child {
+        margin-bottom: 0; /* Remove extra margin for the last item */
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1A202C;
+    color: white;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo Section */
+.footer-logo {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-logo h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* About Us Section */
+.footer-about {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.footer-about h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-about p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.footer-about a {
+    color: #1E90FF;
+    text-decoration: none;
+}
+
+/* Social Media Section */
+.footer-social {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.footer-social h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Social Media Icon Box */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 40px; /* Fixed width for each icon box */
+    height: 40px; /* Fixed height for each icon box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Ensures the image stays inside the box */
+    text-decoration: none;
+    position: relative; /* For absolute positioning of the image */
+}
+
+.social-icons a img {
+    width: 80%; /* Makes the image smaller, now it will take 80% of the box's width */
+    height: 80%; /* Makes the image smaller, now it will take 80% of the box's height */
+    object-fit: contain; /* Ensures the image remains proportional and stays inside the box */
+    transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+/* Hover Effect on Image */
+.social-icons a:hover img {
+    transform: scale(1.2); /* Enlarges the image slightly */
+}
+
+
+
+
+.social-icons a:hover {
+    background-color: white;
+    color: #1A202C;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-about, .footer-social {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+
+/* Responsive Design */
+/* Search Bar Styling */
+.search-bar {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 0.2px solid black;
+    border-radius: 10px;
+    font-size: 16px;
+    position: relative;
+}
+
+/* Search Results Styling */
+.search-results div {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-results div:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Video Background */
+.video-background {
+    position: fixed;  /* Fix the video in place */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure the video spans the entire width */
+    height: 100vh; /* Cover the entire viewport height */
+    z-index: -1; /* Place the video behind the content */
+    overflow: hidden;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire container */
+    filter: blur(8px); /* Apply a blur effect to the video */
+    position: absolute; /* Make sure the video is positioned in the container */
+    top: 0;
+    left: 0;
+}
+
+/* Image Background */
+.image-background {
+    position: fixed;  /* Fix the image in place */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure the image spans the entire width */
+    height: 100vh; /* Cover the entire viewport height */
+    z-index: -1; /* Place the image behind the content */
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+    filter: blur(8px); /* Apply a blur effect to the image */
+    position: absolute; /* Make sure the image is positioned in the container */
+    top: 0;
+    left: 0;
+}
+
+
+/* Ensuring other content (header, footer, etc.) remains above the blurred background */
+header, footer {
+    position: relative;
+    z-index: 2;
+}
+
+/*------------------------------------First page--------------------------------------*/
+
+
+/* Prevent the main content from being blurred */
+main {
+    position: relative; /* Ensure main content is layered on top */
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    z-index: 1; /* Content stays above the blurred background */
+    color: #2D3748;
+}
+
+/* Styling for content within main (cards, about box, etc.) */
+.card1, .about-box {
+    position: relative;
+    z-index: 2; /* Ensure content appears above the blurred background */
+}
+
+/* Ensuring other content (header, footer, etc.) remains above the blurred background */
+header, footer {
+    position: relative;
+    z-index: 2;
+}
+
+main h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'Jockey One', sans-serif;
+
+}
+
 .about-box {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f9f9f9;
+    background-color: #FFFFF0;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 1000px; /* Increase the max-width of the about box */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex-direction: column;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
 }
 
+/* Pulsing Effect for About Box */
+@keyframes about-box-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* Slightly scale up */
+    }
+    100% {
+        transform: scale(1); /* Return to normal size */
+    }
+}
+
+/* Start pulsing only when hovering */
+.about-box:hover {
+    transform: scale(1.1); /* Slightly enlarge the box */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* About Box Content Styling */
 .about-box-content {
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-direction: row;
+    flex-direction: row; /* Position the image and text side by side */
     width: 100%;
+    padding: 5%; /* Add 5% padding around the content */
 }
 
+/* Image or Video Styling */
 .about-box-image {
-    width: 250px;
-    height: 250px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 1px solid #ccc;
+    width: 300px; /* Increased width */
+    height: 300px; /* Increased height */
+    border-radius: 12px; /* Rounded corners */
+    object-fit: cover; /* Ensure the content fills the area */
+    border: 1px solid #ccc; /* Light border */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Scale the image or video slightly on hover */
+.about-box-image:hover {
+    transform: scale(1.1); /* Scale up image/video when hovered */
 }
 
 .about-box-text {
@@ -42,6 +487,7 @@
     font-weight: bold;
     margin-bottom: 15px;
     text-align: center;
+    color:#333
 }
 
 .about-box p {
@@ -71,37 +517,6 @@
     }
 }
 
-/* Search Bar Styling */
-.search-bar {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    position: relative;
-}
-
-/* Search Results Styling */
-.search-results div {
-    background-color: #fff;
-    color: #333;
-    font-size: 14px;
-    padding: 5px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-}
-
-.search-results div:hover {
-    background-color: #f0f0f0;
-}
-
-
-/*------------------------------------First page--------------------------------------/*
-
-
 /* Main Content */
 .content1 {
     display: flex;
@@ -119,14 +534,21 @@
     min-width: 200px;
     height: 350px;
     text-align: center;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: #FFFFF0;
+    border: 1px solid #E2E8F0;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Apply scaling effect on hover */
+.card1:hover {
+    transform: scale(1.1); /* Scale up the card */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Add shadow */
 }
 
 /* Image hover overlay */
@@ -137,8 +559,21 @@
     width: 100%;
     border-radius: 5px;
     overflow: hidden;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
+/* Video inside the image placeholder */
+.image-placeholder1 .live-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Overlay styling */
 .image-placeholder1 .overlay {
     position: absolute;
     top: 0;
@@ -155,6 +590,12 @@
     padding: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
     opacity: 0; /* Hide the overlay initially */
+    z-index: 2; /* Ensure overlay is above the video */
+}
+
+/* Hover effect on the image and overlay */
+.image-placeholder1:hover {
+    transform: scale(1.05); /* Scale up by 10% */
 }
 
 .image-placeholder1:hover .overlay {
@@ -166,6 +607,9 @@
     margin: 0;
     line-height: 1.4;
 }
+
+
+
 
 /* Ensure captions remain below the images */
 .caption1 {
@@ -211,17 +655,20 @@ main {
 }
 
 main h2 {
-    font-size: 18px;
+    font-size: 40px;
     margin-bottom: 20px;
     text-align: center;
     font-weight: normal;
-    color: #555;
+    color: white;
+    font-family: 'Jockey One', sans-serif;
+
 }
 
 section {
     margin-bottom: 30px;
 }
 
+/* Card Styling */
 .about-card,
 .growth-card,
 .personal-card {
@@ -230,19 +677,44 @@ section {
     align-items: center;
     gap: 20px;
     padding: 20px;
-    background-color: #f8f8f8;
+    background-color: #FFFFF0;
     border: 1px solid #ccc;
     border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
 }
 
+/* Hover effect on the card */
+.about-card:hover,
+.growth-card:hover,
+.personal-card:hover {
+    transform: scale(1.02); /* Scale up the entire card by 5% */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow around the card */
+}
+
+/* Image Placeholder Styling */
 .image-placeholder {
     background-color: #ccc;
     width: 200px;
     height: 200px;
     border-radius: 5px;
     flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
+}
+/* Ensure the image fills the placeholder without distortion and adds border-radius */
+.image-placeholder img {
+    width: 100%; /* Make image fill the container's width */
+    height: 100%; /* Make image fill the container's height */
+    object-fit: cover;  /* Ensure the image covers the area while maintaining aspect ratio */
+    border-radius: 5px;  /* Apply the same border-radius as the container */
 }
 
+/* Hover effect to scale the image and add a box shadow */
+.image-placeholder:hover {
+    transform: scale(1.05); /* Scale up by 5% */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow around the image */
+}
+
+/* Text Content Styling */
 .text-content {
     flex: 1;
     font-size: 14px;
@@ -280,6 +752,7 @@ section {
     }
 }
 
+
 /*--------------------------third page--------------------------*/
 
 /* Main Content */
@@ -293,10 +766,11 @@ main {
 }
 
 main h2 {
-    font-size: 22px;
+    font-size: 40px;
     margin-bottom: 20px;
     text-align: center;
-    color: #555;
+    color: white;
+    font-family: 'Jockey One', sans-serif;
 }
 
 /* Cuisine Grid */
@@ -307,11 +781,17 @@ main h2 {
 }
 
 .cuisine-card {
-    background-color: #f8f8f8;
+    background-color: #FFFFF0;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transitions */
+}
+
+.cuisine-card:hover {
+    transform: scale(1.05); /* Scale up by 5% */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow around the card */
 }
 
 .cuisine-card .image-placeholder {
@@ -321,6 +801,16 @@ main h2 {
     border-radius: 5px;
     margin-bottom: 15px;
 }
+
+.image-placeholder iframe {
+    background-color: #ccc; /* Matches the placeholder background */
+    width: 100%;            /* Full width of the parent */
+    height: 100%;           /* Full height of the parent */
+    border-radius: 5px;     /* Matches the border radius */
+    margin: 0;              /* Remove any default margins */
+}
+
+
 
 .cuisine-card h3 {
     font-size: 18px;
@@ -344,7 +834,7 @@ main h2 {
     }
 }
 
-/*-----------------------------4th page*-----------------------------*/
+/*-----------------------------fourth page*-----------------------------*/
 
 /* General Reset */
 * {
@@ -375,9 +865,10 @@ main {
 }
 
 main h2 {
-    font-size: 22px;
+    font-size: 40px;
     margin-bottom: 20px;
-    color: #555;
+    color: white;
+    font-family: 'Jockey One', sans-serif;
 }
 
 .restaurant-grid {
@@ -389,27 +880,56 @@ main h2 {
 .restaurant-card {
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease; /* Adding border-radius transition */
+}
+
+.restaurant-card:hover {
+    transform: scale(1.05); /* Scales up by 5% */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+    border-radius: 10px; /* Adds border radius on hover */
 }
 
 .image-container {
-    position: relative; /* Needed to position the overlay text relative to the container */
-    background-color: #ccc; /* Fallback if no image is uploaded */
+    position: relative;
+    background-color: #ccc;
     width: 100%;
     height: 200px;
     border-radius: 5px;
-    display: flex; /* Optional: aligns content center in case of missing image */
+    display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensures the image doesn't overflow */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease; /* Border radius transition */
+}
+
+.image-container:hover {
+    transform: scale(1.05); /* Scales up by 5% */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+    border-radius: 10px; /* Adds border radius on hover */
 }
 
 .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image fits without distortion */
-    border-radius: 5px;
+    object-fit: cover;
+    border-radius: 5px; /* Keeping this to maintain image border radius */
 }
 
+
+
+/* Ensure the overlay-text is clickable without altering layout */
+.overlay-link {
+    position: absolute; /* Ensure the link is positioned relative to the image container */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make it cover the full width */
+    height: 100%; /* Make it cover the full height */
+    display: block; /* Makes the anchor tag behave as a block-level element */
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits text color */
+}
+
+/* Overlay text styles remain unchanged */
 .overlay-text {
     position: absolute; /* Ensures the text is on top of the image */
     top: 0;
@@ -426,6 +946,12 @@ main h2 {
     opacity: 0; /* Hidden by default */
     transition: opacity 0.3s ease; /* Smoothly reveal the text */
 }
+
+/* Show the overlay text when hovering over the image */
+.image-container:hover .overlay-text {
+    opacity: 1; /* Reveal the overlay text */
+}
+
 
 .image-container:hover .overlay-text {
     opacity: 1; /* Show text when hovered */
