@@ -23,41 +23,19 @@ overlay.addEventListener('click', () => {
 });
 
 
-
-
-
-// Tooltip Feature
-
-
-document.querySelectorAll(".cuisine-card").forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-        const tooltip = document.createElement("div");
-        tooltip.className = "tooltip";
-        tooltip.textContent = "Click to learn more!";
-        card.appendChild(tooltip);
-    });
-
-    card.addEventListener("mouseleave", () => {
-        const tooltip = card.querySelector(".tooltip");
-        if (tooltip) tooltip.remove();
-    });
-});
-
-
-
 // Global search data (add page names, titles, and links)
 const searchData = [
-    { title: "Chinese Cuisine", url: ""},
-    { title: "English Cuisine", url: ""},
-    { title: "Indian Cuisine", url: "" },
-    { title: "Japanese Cuisine", url: "" },
-    { title: "Malay Cuisine", url: ""},
-    { title: "Thai Cuisine", url: ""},
-    { title: "Vietnamese Cuisine", url: "" },
-    { title: "Italian Cuisine", url: "" },
-    { title: "French Cuisine", url: "" },
-    { title: "Mexican Cuisine", url: "" },
-    { title: "Spanish Cuisine", url: "" },
+    { title: "Chinese Cuisine", url: "https://san-j.com/blog/what-is-chinese-cuisine/"},
+    { title: "English Cuisine", url: "https://www.tryotter.com/resource/wiki/what-is-british-cuisine#:~:text=Traditional%20English%20meals%20include%20bread,and%20the%20Full%20English%20breakfast."},
+    { title: "Indian Cuisine", url: "https://www.britannica.com/topic/Indian-cuisine" },
+    { title: "Japanese Cuisine", url: "https://japanspecialist.com/w/the-ultimate-guide-to-japanese-food" },
+    { title: "Malay Cuisine", url: "https://www.thespruceeats.com/profile-of-malay-cooking-and-culture-3030227"},
+    { title: "Thai Cuisine", url: "https://www.thespruceeats.com/thai-food-and-culture-3217393"},
+    { title: "Vietnamese Cuisine", url: "https://visa2asia.com/blog/vietnamese-cuisine-and-not-to-miss-dishes" },
+    { title: "Italian Cuisine", url: "https://jaywaytravel.com/italy/travel-guide/italian-cuisine" },
+    { title: "French Cuisine", url: "https://www.thespruceeats.com/introduction-to-french-food-and-cooking-1375348" },
+    { title: "Mexican Cuisine", url: "https://www.moon.com/travel/food-drink/introduction-to-mexican-food/" },
+    { title: "Spanish Cuisine", url: "https://www.thespruceeats.com/an-introduction-to-spanish-food-and-cooking-3083063" },
 ];
 
 
@@ -65,7 +43,7 @@ const searchData = [
 // Create the search bar (only one instance per page)
 const searchBar = document.createElement("input");
 searchBar.type = "text";
-searchBar.placeholder = "Search for Cuisines!";
+searchBar.placeholder = "Learn more about the different Cuisines!";
 searchBar.className = "search-bar";
 
 // Create a dropdown container for search results
