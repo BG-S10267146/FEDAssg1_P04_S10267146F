@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Blog</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header>
-        <div class="logo">Food Blog</div>
+        <div class="logo" >Feastful Journeys</div>
         <div class="menu-toggle">☰</div>
         <nav>
             <ul>
@@ -24,8 +25,16 @@
        
         <h1>Everything in the globe, in one place</h1>
         <section class="content1">
+            <div class="image-background">
+                <img src="media/food-background2.jpg" alt="Background Image" class="background-image">
+            </div>
             <div class="card1">
                 <div class="image-placeholder1">
+                    <!-- Live video with the class applied -->
+                    <video autoplay muted loop playsinline class="live-video">
+                        <source src="mp4-videos/Food Film _ Cinematic Burger_720.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <div class="overlay">
                         <p>New York City is a paradise for food enthusiasts, a melting pot where cultures collide and cuisines shine. From iconic street eats to high-end gastronomy, the city offers an endless buffet of flavors for every palate and budget.</p>
                     </div>
@@ -34,6 +43,11 @@
             </div>
             <div class="card1">
                 <div class="image-placeholder1">
+                    <!-- Live video with the class applied -->
+                    <video autoplay muted loop playsinline class="live-video">
+                        <source src="mp4-videos/Paradise Dynasty Dim Sum _ Chinese Food B-Roll_720.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <div class="overlay">
                         <p>China is a nation of culinary wonders, offering a tapestry of tastes, textures, and traditions that vary dramatically from region to region. From fiery Sichuan spice to delicate Cantonese dim sum, every province tells a story through its cuisine.</p>
                     </div>
@@ -42,6 +56,11 @@
             </div>
             <div class="card1">
                 <div class="image-placeholder1">
+                    <!-- Live video with the class applied -->
+                    <video autoplay muted loop playsinline class="live-video">
+                        <source src="mp4-videos/BIRYANI FOOD COMMERCIAL _ FOOD REEL _ BIRIYANI FOOD ADVERTISEMENT_720.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <div class="overlay">
                         <p>India is a food lover's paradise, a country where every state boasts its own distinct culinary heritage. From fiery curries to delicate desserts, India's cuisine is a celebration of spices, textures, and traditions.</p>
                     </div>
@@ -50,7 +69,11 @@
             </div>
             <section class="about-box">
                 <div class="about-box-content">
-                    <img src="placeholder.jpg" alt="Trending Image" class="about-box-image" />
+                    <!-- Live Video with the same styling as the image -->
+                    <video autoplay muted loop playsinline class="about-box-image">
+                        <source src="mp4-videos/Restaurant food cinematic video advertisement_720.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <div class="about-box-text">
                         <h2>Trending</h2>
                         <p>
@@ -74,15 +97,48 @@
             
     </main>
     <footer>
-        <div class="social-links">
-            <p>Follow us on</p>
-            <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">TikTok</a></li>
-                <li><a href="#">Twitter</a></li>
-            </ul>
+    <div class="footer-container">
+        <!-- Logo Section -->
+        <div class="footer-logo">
+            <h1>Feastful Journeys</h1>
         </div>
-    </footer>
+
+        <!-- About Us Section -->
+        <div class="footer-about">
+            <h2>ABOUT ME</h2>
+            <p>
+                Feastful Adventures brings you some of the finest culinary experiences, 
+                showcasing the best restaurants and cafés in Singapore
+                and globally, with a focus on fresh dining reviews and exciting new eateries.
+            </p>
+            <p>Contact us: <a href="Bryan.gjl@gmail.com">FeastfulJourneys@gmail.com</a></p>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="footer-social">
+            <h2>FOLLOW ME</h2>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/groups/foodbloggerscentral/">
+                    <img src="media/facebook1.webp" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/foodgemsg/?hl=en">
+                    <img src="media/instagram1.webp" alt="Instagram">
+                </a>
+                <a href="https://www.pinterest.com/mleewest/top-food-bloggers-on-pinterest/">
+                    <img src="media/pinterest2.jpg" alt="Pinterest">
+                </a>
+                <a href="https://x.com/bestfoodblogevr?mx=2">
+                    <img src="media/twitter-logo.png" alt="Twitter">
+                </a>
+                <a href="https://www.youtube.com/channel/UC0ktaVBBPRzqWMeqjCSP1Ww">
+                    <img src="media/youtube.jpg" alt="YouTube">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+            
     <script src="script.js"></script>
 </body>
+
 </html>
